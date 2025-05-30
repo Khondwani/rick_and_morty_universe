@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_universe/components/character_tile.dart';
 import 'package:rick_and_morty_universe/models/character_model.dart';
-import 'package:rick_and_morty_universe/models/characters_model.dart';
 import 'package:rick_and_morty_universe/state/bloc/characters_bloc.dart';
 import 'package:rick_and_morty_universe/state/bloc/characters_events.dart';
 import 'package:rick_and_morty_universe/state/bloc/characters_state.dart';
