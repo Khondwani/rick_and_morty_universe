@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:rick_and_morty_universe/services/interceptors/error_interceptor.dart';
-import 'package:rick_and_morty_universe/services/interceptors/header_interceptor.dart';
+
 import 'package:rick_and_morty_universe/services/interceptors/logging_interceptor.dart';
 
 class APIManagerService {
@@ -18,11 +18,7 @@ class APIManagerService {
     _dio.options.connectTimeout = const Duration(milliseconds: 5000);
     _dio.options.receiveTimeout = const Duration(milliseconds: 3000);
     // Adding interceptors
-    _dio.interceptors.addAll([
-      loggingInterceptor(),
-      headerInterceptor(),
-      errorInterceptor(),
-    ]);
+    _dio.interceptors.addAll([loggingInterceptor(), errorInterceptor()]);
   }
 
   // Error Interceptor for centralized error handling
