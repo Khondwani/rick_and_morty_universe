@@ -7,27 +7,31 @@ class UniverseScreen extends StatelessWidget {
   const UniverseScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(
-          onPressed: () {
-            CharactersService charactersService = CharactersService(
-              APIManagerService.instance,
-            );
-            charactersService
-                .fetchCharacters()
-                .then((response) {
-                  // Handle the response, e.g., update the UI or show a dialog
-                  print('Fetched ${response.results.length} characters');
-                })
-                .catchError((error) {
-                  // Handle any errors
-                  print('Error fetching characters: $error');
-                });
-          },
-          child: Text('Fetch Characters'),
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                CharactersService charactersService = CharactersService(
+                  APIManagerService.instance,
+                );
+                charactersService
+                    .fetchCharacters()
+                    .then((response) {
+                      // Handle the response, e.g., update the UI or show a dialog
+                      print('Fetched ${response.results.length} characters');
+                    })
+                    .catchError((error) {
+                      // Handle any errors
+                      print('Error fetching characters: $error');
+                    });
+              },
+              child: Text('Fetch Characters'),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
